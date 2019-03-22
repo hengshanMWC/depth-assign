@@ -1,0 +1,25 @@
+{
+  "name": "depth-assign",
+  "version": "1.0.0",
+  "description": "无从左到右，还是数组函数，都可以深度遍历",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hengshanMWC/depth-assign.git"
+  },
+  "keywords": [
+    "js",
+    "Object",
+    "depth-first",
+    "traversal"
+  ],
+  "author": "abmao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hengshanMWC/depth-assign/issues"
+  },
+  "homepage": "https://github.com/hengshanMWC/depth-assign#readme"
+}
