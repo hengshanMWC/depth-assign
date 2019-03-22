@@ -1,6 +1,6 @@
 {
   "name": "depth-assign",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "无从左到右，还是数组函数，都可以深度遍历",
   "main": "index.js",
   "scripts": {
