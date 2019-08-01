@@ -1,18 +1,20 @@
 /**
- * 深度拷贝
- * arr：Object | Array，克隆拷贝
- * b ：Boolean,设置递归方向，由左到右，由右到左,后者覆盖前者
- * def：Object({})， 传递给函数的初始值
- * 返回一个创建好的值(引用===def)
+ * 对象、数组、函数、深度遍历
+ * @author mwc
+ * @since 1.0.0
+ * @memberOf objects
+ * @param {boolean} [direction = false]
+ * @param {object|array|function} source
+ * @param {object|array|function} target
  */
-export default function depthAssign(arr, b, def = {}) {
-  let fn = b ? 'reduceRight' : 'reduce'
-  if(!Array.isArray(arr)) arr = [arr]
-  return arr[fn]((obj, newObj) => {
+export default (direction = false, source, ...target) => {
+  let fn = direction ? 'reduceRight' : 'reduce'
+  target[fn]((obj, newObj) => {
     if (isEffective(newObj)) exhaustion(obj, newObj)
     return obj
-  }, def)
+  }, source)
 }
+
 function exhaustion(obj, newObj) {
   Object.keys(newObj).forEach(key => {
     usable(obj, newObj, key)
@@ -22,10 +24,12 @@ function exhaustion(obj, newObj) {
 function usable(obj, newObj, key) {
   let nk = newObj[key]
   if (isEffective(nk)) {
-    if (obj[key] === undefined) obj[key] = nk instanceof Array ? [] : {}
-      //有效的object
-      exhaustion(obj[key], nk)
-  } else if (nk !== undefined) {
+    if (obj[key] === undefined) {
+      obj[key] = nk instanceof Array ? [] : {}
+    }
+    //有效的object
+    exhaustion(obj[key], nk)
+  } else if (nk !== undefined && obj instanceof Object) {
     obj[key] = nk
   }
 }
