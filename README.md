@@ -9,11 +9,12 @@
 
 ```
 /**
- * 深度拷贝
- * arr：Object | Array，克隆拷贝
- * b ：Boolean,设置递归方向，由左到右，由右到左,后者覆盖前者
- * def：Object({})， 传递给函数的初始值
- * 返回一个创建好的值(引用===def)
+ * 对象、数组、函数、深度遍历
+ * @author mwc
+ * @since 1.0.0
+ * @memberOf objects
+ * @param {boolean} [direction = false] 遍历方向
+ * @param {object|array|function} source 合并对象
+ * @param {object|array|function} target 遍历对象
  */
-depthAssign(arr, b, def = {}) 
 ```
